@@ -1,12 +1,11 @@
 import React from "react"
 
-function MainContent() {
+function Header() {
     return (
-            <main>
-                <h1>Hello World!</h1>
-                <p>This is where most of my content will go...</p>
-            </main>
-    );
+        <header>
+            <h1>Hello</h1>
+        </header>
+);
 }
 
-export default MainContent;
+export default Header;
