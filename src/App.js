@@ -1,14 +1,12 @@
 import React from "react"
-import Header from "./components/Header"
-import MainContent from "./components/MainContent"
-import Footer from "./components/Footer"
+import List from "./components/List"
+import Data from "./components/listData"
 
 function App() {
+  const data = Data.map(data => <List key={data.id} name={data.name} tel={data.tel} />)
     return (
         <div>
-            <Header />
-            <MainContent />
-            <Footer />
+          {data}
         </div>
     )
 }
