@@ -1,24 +1,32 @@
 import React, {Component} from "react"
-import List from "./components/List"
-import Data from "./components/listData"
 
-// function App() {
-//   const data = Data.map(data => <List key={data.id} name={data.name} tel={data.tel} />)
-//     return (
-//         <div>
-//           {data}
-//         </div>
-//     )
-// }
+import "./App.css"
+
 class App extends Component {
-  render() {
-    const data = Data.map(data => <List key={data.id} name={data.name} tel={data.tel} />)
-    return(
-      <div>
-        {data}
-      </div>
-    )
-  }
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        this.setState(prevState => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.count}</h1>
+                <button onClick={this.handleClick}>Change!</button>
+            </div>
+        )
+    }
 }
 
 export default App
