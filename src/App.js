@@ -9,6 +9,7 @@ class App extends Component {
             count: 0
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleReset = this.handleReset.bind(this)
     }
 
     handleClick() {
@@ -18,12 +19,16 @@ class App extends Component {
             }
         })
     }
+    handleReset() {
+      this.setState({ count: 0 })
+    }
 
     render() {
         return (
             <div>
                 <h1>{this.state.count}</h1>
                 <button onClick={this.handleClick}>Change!</button>
+                <button onClick={this.handleReset}>Reset</button>
             </div>
         )
     }
