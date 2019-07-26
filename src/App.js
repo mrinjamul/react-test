@@ -27,7 +27,7 @@ class App extends Component {
         return (
             <div>
                 <h1>{this.state.count}</h1>
-                <button onClick={this.handleClick}>Change!</button>
+                <button onClick={this.handleClick}>Change!</button><br/>
                 <button onClick={this.handleReset}>Reset</button>
             </div>
         )
