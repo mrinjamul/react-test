@@ -27,7 +27,7 @@ class App extends Component {
     this.setState({ count: 0 });
   }
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
+    axios.get(`http://localhost:8080/users`).then((res) => {
       const persons = res.data;
       this.setState({ persons });
       console.log(persons);
@@ -43,12 +43,10 @@ class App extends Component {
       name: this.state.name,
     };
 
-    axios
-      .post(`https://jsonplaceholder.typicode.com/users`, { user })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
+    axios.post(`  http://localhost:8080/users`, { user }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
   };
 
   render() {
