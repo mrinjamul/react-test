@@ -3,11 +3,14 @@ import axios from "axios";
 import User from "./components/User";
 
 import "./App.css";
+import "./styles/Main.sass";
+import ProgressBar from "./components/ProgressBar";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      percent: 0.4,
       count: 0,
       name: "",
       persons: [],
@@ -15,6 +18,10 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
+
+  updateProgress = (field, val) => {
+    this.setState({ [field]: val });
+  };
 
   handleClick() {
     this.setState((prevState) => {
@@ -43,7 +50,7 @@ class App extends Component {
       name: this.state.name,
     };
 
-    axios.post(`  http://localhost:8080/users`, { user }).then((res) => {
+    axios.post(`http://localhost:8080/users`, { user }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
@@ -52,6 +59,16 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className="div">
+          <ProgressBar width={400} percent={this.state.percent} />
+          <button
+            onClick={() =>
+              this.updateProgress("percent", this.state.percent + 0.1)
+            }
+          >
+            Add 10%
+          </button>
+        </div>
         <h1>{this.state.count}</h1>
         <button onClick={this.handleClick}>Change!</button>
         <br />
