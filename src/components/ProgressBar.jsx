@@ -7,7 +7,7 @@ const ProgressBar = ({ width, percent }) => {
 
   React.useEffect(() => {
     setValue(percent * width);
-  });
+  }, [percent, width]);
 
   return (
     <div>
