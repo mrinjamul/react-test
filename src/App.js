@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import "./App.css";
+import ChangeMe from "./components/ChangeMe";
 
 class App extends Component {
   constructor() {
@@ -30,6 +31,7 @@ class App extends Component {
         <button onClick={this.handleClick}>Change!</button>
         <br />
         <button onClick={this.handleReset}>Reset</button>
+        <ChangeMe />
       </div>
     );
   }
